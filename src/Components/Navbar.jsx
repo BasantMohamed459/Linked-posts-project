@@ -9,6 +9,7 @@ import {
 } from "@heroui/react";
 import { Link, Navigate, NavLink, useNavigate } from "react-router-dom";
 import { authContext } from "../Context/AuthContext";
+import logo from "../assets/logo.png";
 
 function Navbar() {
   const { isLoggedIn, setIsLoggedIn, setUserData } = useContext(authContext);
@@ -28,7 +29,11 @@ function Navbar() {
     <>
       <HeroNavbar>
         <NavbarBrand>
-          <Link to={"/"} className="font-bold text-inherit">
+          <Link
+            to={"/"}
+            className="font-bold text-inherit flex justify-center items-center gap-1"
+          >
+            <img src={logo} alt="logo" className="w-35 h-20" />
             Blog Posts
           </Link>
         </NavbarBrand>
