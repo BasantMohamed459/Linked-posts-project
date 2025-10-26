@@ -3,7 +3,10 @@ import axios from "axios";
 
 export async function sendRegisterData(userData) {
   try {
-    const response = await axios.post("/api/users/signup", userData);
+    const response = await axios.post(
+      "https://linked-posts.routemisr.com/users/signup",
+      userData
+    );
     console.log("response", response);
     return response;
   } catch (error) {
@@ -13,7 +16,10 @@ export async function sendRegisterData(userData) {
 }
 export async function sendLoginData(userData) {
   try {
-    const response = await axios.post("/api/users/signin", userData);
+    const response = await axios.post(
+      "https://linked-posts.routemisr.com/users/signin",
+      userData
+    );
     console.log("response", response);
     return response;
   } catch (error) {
@@ -25,11 +31,14 @@ export async function sendLoginData(userData) {
 // get logged in user data
 export async function getLoggedUserDataApi() {
   try {
-    const response = await axios.get("/api/users/profile-data", {
-      headers: {
-        token: localStorage.getItem("token"),
-      },
-    });
+    const response = await axios.get(
+      "https://linked-posts.routemisr.com/users/profile-data",
+      {
+        headers: {
+          token: localStorage.getItem("token"),
+        },
+      }
+    );
     return response;
   } catch (error) {
     console.log("error", error.response.data);

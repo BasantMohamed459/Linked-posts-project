@@ -1,14 +1,17 @@
 import axios from "axios";
 export async function getAllPostsApi() {
   try {
-    const { data } = await axios.get("/api/posts?limit=50", {
-      headers: {
-        token: localStorage.getItem("token"),
-      },
-      params: {
-        sort: "-createdAt",
-      },
-    });
+    const { data } = await axios.get(
+      "https://linked-posts.routemisr.com/posts?limit=50",
+      {
+        headers: {
+          token: localStorage.getItem("token"),
+        },
+        params: {
+          sort: "-createdAt",
+        },
+      }
+    );
     console.log(data);
     return data;
   } catch (error) {
@@ -17,11 +20,14 @@ export async function getAllPostsApi() {
 }
 export async function getSinglePostApi(id) {
   try {
-    const { data } = await axios.get(`/api/posts/${id}`, {
-      headers: {
-        token: localStorage.getItem("token"),
-      },
-    });
+    const { data } = await axios.get(
+      `https://linked-posts.routemisr.com/posts/${id}`,
+      {
+        headers: {
+          token: localStorage.getItem("token"),
+        },
+      }
+    );
     console.log(data);
     return data;
   } catch (error) {
@@ -31,12 +37,16 @@ export async function getSinglePostApi(id) {
 
 export async function createPostApi(formData) {
   try {
-    const { data } = await axios.post("/api/posts", formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-        token: localStorage.getItem("token"),
-      },
-    });
+    const { data } = await axios.post(
+      "https://linked-posts.routemisr.com/posts",
+      formData,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          token: localStorage.getItem("token"),
+        },
+      }
+    );
     return data;
   } catch (error) {
     console.log(error);
@@ -46,12 +56,16 @@ export async function createPostApi(formData) {
 // upadte post
 export async function updatePostApi(formData, id) {
   try {
-    const { data } = await axios.put(`/api/posts/${id}`, formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-        token: localStorage.getItem("token"),
-      },
-    });
+    const { data } = await axios.put(
+      `https://linked-posts.routemisr.com/posts/${id}`,
+      formData,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          token: localStorage.getItem("token"),
+        },
+      }
+    );
     return data;
   } catch (error) {
     console.log(error);
@@ -62,11 +76,14 @@ export async function updatePostApi(formData, id) {
 
 export async function deletePostApi(id) {
   try {
-    const { data } = await axios.delete(`/api/posts/${id}`, {
-      headers: {
-        token: localStorage.getItem("token"),
-      },
-    });
+    const { data } = await axios.delete(
+      `https://linked-posts.routemisr.com/posts/${id}`,
+      {
+        headers: {
+          token: localStorage.getItem("token"),
+        },
+      }
+    );
     return data;
   } catch (error) {
     console.log(error);

@@ -3,7 +3,7 @@ import axios from "axios";
 export async function createCommentApi(content, postId) {
   try {
     const { data } = await axios.post(
-      "/api/comments",
+      "https://linked-posts.routemisr.com/comments",
       {
         content,
         post: postId,
@@ -24,7 +24,7 @@ export async function createCommentApi(content, postId) {
 export async function updateCommentApi(id, commentContent) {
   try {
     const { data } = await axios.put(
-      `/api/comments/${id}`,
+      `https://linked-posts.routemisr.com/comments/${id}`,
       {
         content: commentContent,
       },
@@ -45,11 +45,14 @@ export async function updateCommentApi(id, commentContent) {
 
 export async function deleteCommentApi(commentId) {
   try {
-    const { data } = await axios.delete(`/api/comments/${commentId}`, {
-      headers: {
-        token: localStorage.getItem("token"),
-      },
-    });
+    const { data } = await axios.delete(
+      `https://linked-posts.routemisr.com/comments/${commentId}`,
+      {
+        headers: {
+          token: localStorage.getItem("token"),
+        },
+      }
+    );
     return data;
   } catch (error) {
     console.log(error);
@@ -59,11 +62,14 @@ export async function deleteCommentApi(commentId) {
 // get post comments
 export async function getPostCommentsApi(postId) {
   try {
-    const { data } = await axios.get(`/api/posts/${postId}/comments`, {
-      headers: {
-        token: localStorage.getItem("token"),
-      },
-    });
+    const { data } = await axios.get(
+      `https://linked-posts.routemisr.com/posts/${postId}/comments`,
+      {
+        headers: {
+          token: localStorage.getItem("token"),
+        },
+      }
+    );
     return data;
   } catch (error) {
     console.log(error);
