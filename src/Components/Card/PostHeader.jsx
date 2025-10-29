@@ -8,7 +8,6 @@ export default function PostHeader({ photo, name, date }) {
         <div>
           <h3 className="text-md font-semibold ">{name}</h3>
           <p className="text-xs text-gray-500">
-            {" "}
             {new Date(date).toLocaleString()}
           </p>
         </div>
